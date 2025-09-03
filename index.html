@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Janala | Best English Learning Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
     <!-- Favicon  -->
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
     <!-- DaisyUI  -->
@@ -19,15 +20,64 @@
 </head>
 
 <body>
-    <header>
 
+
+
+    <header class="max-w-[1440px] mx-auto">
+        <nav>
+            <div class="navbar bg-base-100 shadow-sm bg-sky-50">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                        </div>
+                        <ul
+                            tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-5 w-52 p-2 shadow">
+                            <li><a ><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                            <li><a><i class="fa-solid fa-book-open"></i> Learn</a></li>
+                            <li><a><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-ghost text-xl">
+                        <span class="text-2xl font-bold">English</span>
+                        <img src="./assets/logo.png" alt="">
+                        <span class="font-bangla text-xl font-semibold">জানালা</span>
+                    </a>
+                </div>
+            <div class="navbar-end hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 space-x-5">
+                <li class="btn btn-outline btn-primary"><a ><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                <li class="btn btn-outline btn-primary"><a><i class="fa-solid fa-book-open"></i> Learn</a></li>
+                <li class="btn btn-outline btn-primary"><a><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <div class="banner w-11/12 mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-6 my-7">
+            <div class="flex-1 space-y-4 text-center md:text-left">
+                <h2 class="text-4xl font-bold"><span class="text-sky-400">English</span> is Easy!!</h2>
+                <p class="font-bangla py-4">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                <input type="text" placeholder="Enter Your Name" class="input input-md"/><br>
+                <input type="password" placeholder="Password" class="input input-md" />
+                <br>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <div class="flex-1">
+                <img src="./assets/hero-student.png" alt="">
+            </div>
+        </div>
     </header>
+
+
+
+
     <main>
 
     </main>
     <footer>
 
     </footer>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
