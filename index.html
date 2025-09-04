@@ -61,7 +61,7 @@
                 <input type="text" placeholder="Enter Your Name" class="input input-md"/><br>
                 <input type="password" placeholder="Password" class="input input-md" />
                 <br>
-                <button class="btn btn-primary">Get Started</button>
+                <button class="btn btn-primary w-xs">Get Started</button>
             </div>
             <div class="flex-1">
                 <img src="./assets/hero-student.png" alt="">
@@ -69,11 +69,45 @@
         </div>
     </header>
 
-
-
-
     <main>
+        <!-- Lesson - Button  -->
+        <section>
+            <div class="my-14 md:mt-28">
+                <h2 class="text-4xl font-bold text-center my-10"><span class="text-sky-400">Let's</span> Learn Vocabularies</h2>
+                <div id="container" class="flex justify-center items-center flex-wrap gap-4 px-3 md:px-0">
+                </div>
+            </div>
+        </section>
 
+        <section id="spinner" class="flex justify-center items-center pb-16 hidden">
+            <span class="loading loading-spinner loading-xl"></span>
+        </section>
+
+        <!-- Words - Card  -->
+         <section id="word-container" class="bg-gray-200 p-10 w-11/12 mx-auto mb-10 grid grid-cols-3 gap-8 rounded-md">
+            <div class="text-center col-span-full space-y-6">
+                <p class="font-semibold text-gray-500 font-bangla">আপনি এখনো কোন Lesson Select করেন নি</p>
+                <h1 class="text-4xl font-semibold font-bangla">একটি Lesson Select করুন।</h1>
+            </div>
+         </section>
+
+         <section>
+            <!-- Open the modal using ID.showModal() method -->
+                <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+                <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box">
+                    <div id="details-container" class="">
+                       
+                    </div>
+                    <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                    </div>
+                </div>
+                </dialog>
+         </section>
     </main>
     <footer>
 
