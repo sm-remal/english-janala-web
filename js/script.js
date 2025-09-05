@@ -2,8 +2,14 @@ const createElement = (array) => {
     const htmlElements = array.map((el) => `<span class="btn">${el}</span>`);
     return htmlElements.join(" ");
 }
+// Speak 
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
 
-
+// Spinner 
 const manageSpinner = (status) => {
     if(status === true){
         document.getElementById("spinner").classList.remove("hidden")
@@ -14,7 +20,7 @@ const manageSpinner = (status) => {
     }
 }
 
-
+// 1st Lesson Load From API 
 const loadLessons = () => {
     const url = "https://openapi.programming-hero.com/api/levels/all"
     fetch(url)
@@ -22,6 +28,7 @@ const loadLessons = () => {
     .then(json => displayLesson(json.data))
 }
 
+//   Remove Active 
 const removeActive = () => {
     const lessonButtons = document.querySelectorAll(".active-remove-btn")
     lessonButtons.forEach(btn => btn.classList.remove("active"))
@@ -49,6 +56,7 @@ const loadWordDetails = async (id) => {
     displayWordDetails(details.data);
 }
 
+// Modal Display 
 const displayWordDetails = (word) => {
     console.log(word)
     const detailsBox = document.getElementById("details-container");
@@ -77,7 +85,7 @@ const displayWordDetails = (word) => {
 }
 
 
-
+// Display Word 
 const displayLessonWord = (words) => {
     const wordContainer = document.getElementById("word-container");
     wordContainer.innerHTML = "";
@@ -99,7 +107,7 @@ const displayLessonWord = (words) => {
                 <h2 class="text-2xl font-bangla font-semibold text-gray-600">${word.meaning ? word.meaning : "অর্থ  পাওয়া জায়নি"} / ${word.pronunciation ? word.pronunciation : "Not found pronunciation"}</h2>
                 <div class="flex justify-between items-center ">
                     <button onclick="loadWordDetails(${word.id})" class="bg-[#1a91ff1a] px-4 py-3 rounded-lg text-lg cursor-pointer hover:bg-[#1a90ff3d]"><i class="fa-solid fa-circle-info"></i></button>
-                    <button class="bg-[#1a91ff1a] px-4 py-3 rounded-lg text-lg cursor-pointer hover:bg-[#1a90ff3d]"><i class="fa-solid fa-volume-high"></i></button>
+                    <button onclick="pronounceWord('${word.word}')" class="bg-[#1a91ff1a] px-4 py-3 rounded-lg text-lg cursor-pointer hover:bg-[#1a90ff3d]"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
                 </div>
         `
@@ -108,6 +116,7 @@ const displayLessonWord = (words) => {
     manageSpinner(false)
 }
 
+//    Lesson Button Display 
 const displayLesson = (values) => {
     const container = document.getElementById("container");
     container.innerHTML = "";
@@ -120,4 +129,20 @@ const displayLesson = (values) => {
     }
 }
 
+
 loadLessons()
+
+
+//   Input - Search 
+document.getElementById("search-btn").addEventListener("click", () => {
+    removeActive();
+    const inputValue = document.getElementById("search-input").value.trim().toLowerCase();
+    fetch("https://openapi.programming-hero.com/api/words/all")
+    .then(res => res.json())
+    .then(data => {
+        const allWords = data.data;
+        const filterWords = allWords.filter(word => word.word.toLowerCase().includes(inputValue));
+        displayLessonWord(filterWords)
+        document.getElementById("search-input").value = "";
+    })
+})

@@ -20,9 +20,6 @@
 </head>
 
 <body>
-
-
-
     <header class="max-w-[1440px] mx-auto">
         <nav>
             <div class="navbar bg-base-100 shadow-sm bg-sky-50">
@@ -78,30 +75,39 @@
                 </div>
             </div>
         </section>
-
+        <!-- Search  -->
+         <section class="flex justify-center">
+            <div class="join">
+                <div>
+                    <label class="input validator join-item">
+                    <input id="search-input" type="text" placeholder="Search Vocabulary Now" required />
+                    </label>
+                </div>
+                <button id="search-btn" class="btn btn-primary join-item">Search</button>
+                </div>
+         </section>
+         <!-- Spinner - Loading  -->
         <section id="spinner" class="flex justify-center items-center pb-16 hidden">
             <span class="loading loading-spinner loading-xl"></span>
         </section>
 
         <!-- Words - Card  -->
-         <section id="word-container" class="bg-gray-200 p-10 w-11/12 mx-auto mb-10 grid grid-cols-3 gap-8 rounded-md">
+         <section id="word-container" class="bg-gray-200 p-10 w-11/12 mx-auto my-14 grid md:grid-cols-3 gap-8 rounded-md">
             <div class="text-center col-span-full space-y-6">
                 <p class="font-semibold text-gray-500 font-bangla">আপনি এখনো কোন Lesson Select করেন নি</p>
                 <h1 class="text-4xl font-semibold font-bangla">একটি Lesson Select করুন।</h1>
             </div>
          </section>
-
+         <!-- Modal  -->
          <section>
             <!-- Open the modal using ID.showModal() method -->
                 <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
                 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <div id="details-container" class="">
-                       
+                    <div id="details-container" class="">                       
                     </div>
                     <div class="modal-action">
                     <form method="dialog">
-                        <!-- if there is a button in form, it will close the modal -->
                         <button class="btn">Close</button>
                     </form>
                     </div>
@@ -110,7 +116,6 @@
          </section>
     </main>
     <footer>
-
     </footer>
     <script src="js/script.js"></script>
 </body>
