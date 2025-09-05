@@ -2,10 +2,25 @@ const createElement = (array) => {
     const htmlElements = array.map((el) => `<span class="btn">${el}</span>`);
     return htmlElements.join(" ");
 }
-// Speak 
+// Mobile Friendly Speak Function
 function pronounceWord(word) {
+  let voices = window.speechSynthesis.getVoices();
+
+  if (voices.length === 0) {
+    window.speechSynthesis.onvoiceschanged = () => pronounceWord(word);
+    return;
+  }
+
   const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = "en-EN"; // English
+
+  let selectedVoice = voices.find(voice => voice.lang === "en-US") 
+                      || voices.find(voice => voice.lang === "en-GB") 
+                      || voices[0]; // fallback
+
+  utterance.voice = selectedVoice;
+  utterance.lang = selectedVoice.lang;
+
+  window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);
 }
 
